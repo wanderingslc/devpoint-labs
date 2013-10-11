@@ -1,4 +1,4 @@
-devpoint-labs
+Devpoint Labs
 =============
 
 DevPoint Labs Site

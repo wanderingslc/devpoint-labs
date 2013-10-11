@@ -1,9 +1,9 @@
+.DS_Store
 *.rbc
 *.sassc
 .sass-cache
 capybara-*.html
 .rspec
-.rvmrc
 /.bundle
 /vendor/bundle
 /log/*
@@ -17,3 +17,8 @@ rerun.txt
 pickle-email-*.html
 .project
 config/initializers/secret_token.rb
+
+.ruby-gemset
+.ruby-version
+.rvmrc
+.powenv
