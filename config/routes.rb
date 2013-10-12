@@ -1,4 +1,15 @@
 DevpointLabs::Application.routes.draw do
+  root :to => 'static_pages#home'
+  get "path", to: 'controller#action', as: :name_of_path
+
+  get "web-development", to: "static_pages#web_development", as: :web_development
+  get "about", to: "static_pages#about", as: :about
+  get "ios-development", to: "static_pages#ios_development", as: :ios_development
+  get "utah", to: "static_pages#utah", as: :utah
+  get "learn-more", to: "static_pages#learn_more", as: :learn_more
+  get "tuition", to: "static_pages#tuition", as: :tuition
+  get "faq", to: "static_pages#faq", as: :faq
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
