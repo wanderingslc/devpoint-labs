@@ -1,0 +1,13 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  web_development:            "Ruby on Rails Developmento"
+  about:                      "Sobre Nosotros"
+  ios_development:            "IOS Developmento"
+  utah:                       "Porque Utah?"
+  learn_more:                 "Aprende Mas"
+  tuition:                    "Tuicíon"
+  faq:                        "Preguntas"
+
+  home_welcome_message:       "Bienvenidos a DevPoint Labs"

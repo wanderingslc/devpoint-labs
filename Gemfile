@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
+gem 'rails-i18n', '~> 3.0.0' # For 3.x
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -20,7 +21,7 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-sass', '~> 2.3.2.1'
+  gem "bootstrap-sass", github: "thomas-mcdonald/bootstrap-sass", branch: '3'
   gem 'uglifier', '>= 1.0.3'
 end
 

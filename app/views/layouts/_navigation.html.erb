@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to "DevPoint Labs", root_path, class: "navbar-brand" %>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li><%= link_to t(:web_development), web_development_path %></li>
+      <li><%= link_to t(:about), about_path %></li>
+      <li><%= link_to t(:ios_development), ios_development_path %></li>
+      <li><%= link_to t(:utah), utah_path %></li>
+      <li><%= link_to t(:learn_more), learn_more_path %></li>
+      <li><%= link_to t(:tuition), tuition_path %></li>
+      <li><%= link_to t(:faq), faq_path %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select Language <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="?locale=en">English</a></li>
+          <li><a href="?locale=es">Español</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>

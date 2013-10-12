@@ -2,4 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  web_development:            "Ruby on Rails Development"
+  about:                      "About Us"
+  ios_development:            "IOS Development"
+  utah:                       "Why Utah?"
+  learn_more:                 "Learn more"
+  tuition:                    "Tuition"
+  faq:                        "FAQ"
+
+  home_welcome_message:       "Welcome to DevPoint Labs"
