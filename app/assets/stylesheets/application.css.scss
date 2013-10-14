@@ -1,1 +1,5 @@
-@import "bootstrap";
+$purple: #6e53a2;
+$primary-color: $purple;
+
+@import "bootstrap_and_overrides";
+@import "static_pages";
