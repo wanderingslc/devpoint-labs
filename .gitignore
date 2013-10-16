@@ -16,9 +16,11 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 .project
-config/initializers/secret_token.rb
 
 .ruby-gemset
 .ruby-version
 .rvmrc
 .powenv
+
+# Ignore application configuration
+/config/application.yml
