@@ -1,4 +1,6 @@
 DevpointLabs::Application.routes.draw do
+  devise_for :users
+
   root :to => 'static_pages#home'
   get "path", to: 'controller#action', as: :name_of_path
 

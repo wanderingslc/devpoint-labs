@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <title>*|MC:SUBJECT|*</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    
+  <style type="text/css">
+    body,#wrap{
+      background-color:#d2efef;
+      text-align:center;
+    }
+    #layout{
+      margin:10px auto;
+      text-align:left;
+    }
+    #topbar{
+      background-color:transparent;
+      padding:10px 0 20px;
+      color:#666;
+      font-size:11px;
+      font-family:Georgia;
+      font-weight:normal;
+      text-align:center;
+    }
+    #topbar{
+      color:#ff8e6b;
+      text-decoration:underline;
+      font-weight:normal;
+    }
+    #content{
+      background:#ffffff;
+      line-height:1.25em;
+      padding:10px 20px 30px 40px;
+      vertical-align:top;
+    }
+    .primary-heading{
+      font-size:22px;
+      font-weight:normal;
+      color:#7e7e7e;
+      font-family:Georgia;
+      line-height:150%;
+      text-align:center;
+    }
+    p.btn{
+      background:#ff8e6b;
+      border:3px solid #ebebeb;
+      width:auto;
+      color:#fff;
+      text-align:center;
+      margin:25px 15%;
+      font-size:40px;
+      font-family:Georgia;
+      padding:.7em 0;
+    }
+    p.note{
+      font-family:Georgia;
+      color:#777;
+      margin:0 10%;
+      font-size:16px;
+      line-height:1.4em;
+      text-align:center;
+    }
+    #footer{
+      background-color:transparent;
+      padding:20px;
+      font-size:10px;
+      color:#666;
+      line-height:100%;
+      font-family:Georgia;
+      text-align:center;
+    }
+    #footer a{
+      color:#ff8e6b;
+      text-decoration:underline;
+      font-weight:normal;
+    }
+    a,a:link,a:visited{
+      color:#ff8e6b;
+      text-decoration:underline;
+      font-weight:normal;
+    }
+</style></head>
+  <body style="background-color: #d2efef;text-align: center;">
+    <div id="wrap" style="background-color: #d2efef;text-align: center;">
+      <table id="layout" border="0" cellspacing="0" cellpadding="0" width="600" style="margin: 10px auto;text-align: left;">
+        <tr>
+          <td id="topbar" style="background-color: transparent;padding: 10px 0 20px;color: #ff8e6b;font-size: 11px;font-family: Georgia;font-weight: normal;text-align: center;text-decoration: underline;"><!-- *|END:IF|* --></td>
+        </tr>
+        <tr>
+          <td>
+            <h1> DevPoint Labs</h1>
+          </td>
+        </tr>
+        <tr>
+          <td id="content" style="background: #ffffff;line-height: 1.25em;padding: 10px 20px 30px 40px;vertical-align: top;">
+            <%= yield %>
+</td>
+        </tr>
+        <tr>
+          <td id="page_curl">
+            <img src="http://gallery.mailchimp.com/0d61bb2ec9002f0e9872b8c36/images/beauty_coupon_footer.png">
+          </td>
+        </tr>
+        <tr>
+          <td id="footer" style="background-color: transparent;padding: 20px;font-size: 10px;color: #666;line-height: 100%;font-family: Georgia;text-align: center;">
+              <p>Copyright &copy; <%= Time.now.year %> DevPoint Labs All rights reserved.</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <span style="padding: 0px;"></span>
+  </body>
+</html>

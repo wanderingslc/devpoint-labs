@@ -2,11 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 gem 'rails-i18n', '~> 3.0.0' # For 3.x
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'pg'
+gem 'simple_form'
+gem 'devise'
+gem "figaro"
 
 group :development do
   gem 'powder'
@@ -14,6 +13,8 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'xray-rails'
+  gem 'letter_opener'
 end
 
 # Gems used only for assets and not required
