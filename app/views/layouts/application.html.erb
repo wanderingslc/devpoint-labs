@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DevPoint Labs</title>
+    <title><%= content_for?(:title) ? yield(:title) + " | DevPoint Labs" : "DevPoint Labs"  %></title>
+    <meta name='description' content="<%= content_for?(:description) ? yield(:description) : 'DevPoint Labs is an intense 11 week bootcamp for Ruby on Rails Web Development and iOS mobile development.' %> " >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= stylesheet_link_tag    "application", :media => "all" %>
