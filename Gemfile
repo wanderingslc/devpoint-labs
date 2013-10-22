@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
+gem 'rails', '3.2.15'
 gem 'rails-i18n', '~> 3.0.0' # For 3.x
 gem 'pg'
 gem 'simple_form'
