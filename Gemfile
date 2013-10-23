@@ -26,14 +26,12 @@ end
 
 group :development, :test do
   gem "minitest-rails", github: 'blowmage/minitest-rails'
-
   gem "factory_girl_rails", ">= 4.2.0"
   gem 'ffaker'
   # gem "email_spec"
 end
 
 group :test do
-  # gem "minitest-rails-capybara"
   # gem "mocha", require: false
   # gem "codeclimate-test-reporter",  require: false
   # gem "database_cleaner", ">= 1.0.0.RC1"

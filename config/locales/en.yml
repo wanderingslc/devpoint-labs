@@ -11,3 +11,10 @@ en:
   faq:                        "FAQ"
 
   home_welcome_message:       "Welcome to DevPoint Labs"
+
+  contact_me:                             "Contact Us"
+  get_in_touch:                           "Get in touch"
+  email_address_placeholder:              "Please enter your email address"
+  email_name_placeholder:                 "Your full name, please"
+  email_subject_placeholder:              "What do you want to talk to us about?"
+  email_body_placeholder:                 "Write us a message."
