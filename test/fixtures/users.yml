@@ -1,0 +1,16 @@
+john:
+  email:      'johndoe@example.com'
+  first_name: 'John'
+  last_name: 'Doe'
+
+jane:
+  email: 'janedoe@example.com'
+  first_name: 'Jane'
+  last_name: 'Doe'  
+
+user_without_first_name:
+  email: 'janedoe@example.com'
+  last_name: 'Doe'    
+user_without_last_name:
+  email: 'janedoe@example.com'
+  first_name: 'Doe'      
