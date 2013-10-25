@@ -1,52 +1,52 @@
 require "test_helper"
 
-class UserTest < ActiveSupport::TestCase
+describe User do
 
-  before do 
-    @user = build(:user)
+  let(:user) {build(:user)}
+
+  describe "it passes all the validation" do
+    it "it has an email" do
+      user.email = nil
+      refute user.valid?, 'User did not have a first name'
+    end
+
+    it "it has a valid email" do
+      user.email = 'ben@be'
+      assert user.invalid?, 'User did not have a first name'
+    end  
+
+    it "it has a password" do
+      user.password = nil
+      assert user.invalid?, 'User did not have a first name'
+    end    
+
+    it "password length is less than 120 characters" do
+      user.password = ('a' * 121).to_s
+      assert user.invalid?, 'User did not have a first name'
+    end   
+
+    it "password length is no less  than 6 characters" do
+      user.password = '12345'
+      assert user.invalid?, 'User did not have a first name'
+    end   
+
+    it "ensures that an error is raised if user is created without a first name" do
+      user.first_name = nil
+      refute user.valid?, 'User did not have a first name'
+    end  
+
+    it "ensures that an error is raised if user is created without a last name" do
+      user.last_name = nil
+      refute user.valid?, "User did not have a last name"
+    end    
   end
 
-  test "it has an email" do
-    @user.email = nil
-    refute @user.valid?, 'User did not have a first name'
+  it 'displays full name properly as first + last name' do
+    assert_equal user.full_name, user.first_name + ' ' + user.last_name
   end
 
-  test "it has a valid email" do
-    @user.email = 'ben@be'
-    assert @user.invalid?, 'User did not have a first name'
-  end  
-
-  test "it has a password" do
-    @user.password = nil
-    assert @user.invalid?, 'User did not have a first name'
-  end    
-
-  test "password length is less than 120 characters" do
-    @user.password = ('a' * 121).to_s
-    assert @user.invalid?, 'User did not have a first name'
-  end   
-
-  test "password length is no less  than 6 characters" do
-    @user.password = '12345'
-    assert @user.invalid?, 'User did not have a first name'
-  end   
-
-  test "ensures that an error is raised if user is created without a first name" do
-    @user.first_name = nil
-    refute @user.valid?, 'User did not have a first name'
-  end  
-
-  test "ensures that an error is raised if user is created without a last name" do
-    @user.last_name = nil
-    refute @user.valid?, "User did not have a last name"
-  end    
-
-  test 'displays full name properly as first + last name' do
-    assert_equal @user.full_name, @user.first_name + ' ' + @user.last_name
-  end
-
-  test 'displays the street name properly' do
-    @user.street_name.must_equal @user.first_name[0] + '-' + @user.last_name[0..4]
+  it 'displays the street name properly' do
+    user.street_name.must_equal user.first_name[0] + '-' + user.last_name[0..4]
   end
 end
 

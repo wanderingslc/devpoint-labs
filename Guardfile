@@ -1,3 +1,5 @@
+notification :gntp
+notification :terminal_title
 guard 'livereload' do
   watch(%r{app/views/.+\.(erb|haml|slim)$})
   watch(%r{app/.+\.rb})
