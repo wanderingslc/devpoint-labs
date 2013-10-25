@@ -1,21 +1,4 @@
 DevpointLabs::Application.routes.draw do
-
-  get "static_pages/home"
-
-  get "static_pages/web_development"
-
-  get "static_pages/about"
-
-  get "static_pages/ios_development"
-
-  get "static_pages/utah"
-
-  get "static_pages/learn_more"
-
-  get "static_pages/tuition"
-
-  get "static_pages/faq"
-
   devise_for :users
 
   root :to => 'static_pages#home'

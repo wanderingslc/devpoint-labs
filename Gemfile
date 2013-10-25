@@ -9,7 +9,7 @@ gem "figaro"
 
 group :development do
   gem 'powder'
-  gem 'pry-rails'
+  
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
@@ -28,6 +28,8 @@ group :development, :test do
   gem "minitest-rails", github: 'blowmage/minitest-rails'
   gem "factory_girl_rails", ">= 4.2.0"
   gem 'ffaker'
+  gem 'pry-rails'
+  # gem "minitest-matchers"
   # gem "email_spec"
 end
 
