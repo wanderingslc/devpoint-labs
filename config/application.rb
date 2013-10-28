@@ -67,5 +67,7 @@ module DevpointLabs
     # Disables database from loading during asset compilation on HEROKU
     config.assets.initialize_on_precompile = false
 
+    config.paperclip_defaults = {:default_url => "assets/:attachment/default/:style.png", :path => "public/images/:attachment/:id/:style.:extension"}
+
   end
 end
