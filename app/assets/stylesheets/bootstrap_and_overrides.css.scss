@@ -6,4 +6,6 @@ $navbar-default-link-hover-color: darken($navbar-default-color, 10%);
 $btn-primary-bg: $primary-color;
 $btn-primary-color: $navbar-default-link-color;
 
+$carousel-indicator-active-bg:  $primary-color;
+$carousel-indicator-border-color:  $carousel-indicator-active-bg;
 @import "bootstrap";

@@ -1,5 +1,8 @@
 DevpointLabs::Application.routes.draw do
-  resources :projects
+  resources :projects do
+    get 'gallery_images/new', to: 'projects#new_gallery_image', as: :new_gallery_image
+    post 'gallery_images/new', to: 'projects#create_gallery_image', as: :create_gallery_image
+  end
   devise_for :users
 
   root :to => 'static_pages#home'

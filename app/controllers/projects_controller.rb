@@ -85,4 +85,20 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def new_gallery_image
+    @project = Project.find(params[:project_id])
+    @gallery_image = @project.gallery_images.new
+  end
+
+  def create_gallery_image
+    @project = Project.find(params[:project_id])
+    @gallery_image = @project.gallery_images.new(params[:gallery_image])
+    if @gallery_image.save
+      redirect_to project_path(@project), notice: "Image successfully uploaded"
+    else
+      flash.now.alert = 'Image could not be saved. See errors below'
+      render :new_gallery_image
+    end
+  end  
 end

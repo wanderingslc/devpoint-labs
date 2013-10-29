@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131028225444) do
+ActiveRecord::Schema.define(:version => 20131029000135) do
+
+  create_table "gallery_images", :force => true do |t|
+    t.string   "caption"
+    t.text     "description"
+    t.integer  "project_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "gallery_images", ["project_id"], :name => "index_gallery_images_on_project_id"
 
   create_table "projects", :force => true do |t|
     t.string   "name"

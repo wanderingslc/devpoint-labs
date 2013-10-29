@@ -77,4 +77,11 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_redirected_to projects_path
     assert_not_nil flash.notice
   end
+
+  test 'it displays a new gallery image page' do
+    get :new_gallery_image
+    assert_response :success
+    assert_template :new_gallery_image
+    
+  end
 end
