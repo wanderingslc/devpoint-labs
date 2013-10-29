@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131029000135) do
+ActiveRecord::Schema.define(:version => 20131029232549) do
 
   create_table "gallery_images", :force => true do |t|
     t.string   "caption"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(:version => 20131029000135) do
   end
 
   add_index "gallery_images", ["project_id"], :name => "index_gallery_images_on_project_id"
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "published_at"
+    t.integer  "user_id"
+    t.string   "seo_title"
+    t.string   "seo_description"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "projects", :force => true do |t|
     t.string   "name"
