@@ -11,21 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131029232549) do
+ActiveRecord::Schema.define(:version => 20131030003404) do
 
-  create_table "gallery_images", :force => true do |t|
+  create_table "pictures", :force => true do |t|
     t.string   "caption"
     t.text     "description"
-    t.integer  "project_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.integer  "pictureable_id"
+    t.string   "pictureable_type"
   end
 
-  add_index "gallery_images", ["project_id"], :name => "index_gallery_images_on_project_id"
+  add_index "pictures", ["pictureable_id"], :name => "index_pictures_on_pictureable_id"
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -53,6 +54,16 @@ ActiveRecord::Schema.define(:version => 20131029232549) do
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "tags", ["taggable_id"], :name => "index_tags_on_taggable_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

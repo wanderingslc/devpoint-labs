@@ -1,13 +1,14 @@
 <div class='row'>
   <div class='col-sm-4'>
-    <%= image_tag @project.gallery_images.first.image.url(:medium) %>
+    <%= image_tag @project.pictures.first.image.url(:medium) %>
     <ul class='list-inline thumbnails'>
-      <% @project.gallery_images.each do |gallery_image| %>
+      <% @project.pictures.each do |picture| %>
         <li class='thumbnail text-center'>
-          <p><%= image_tag(gallery_image.image.url(:thumb), class: 'img-circle') %></p>
+          <p><%= image_tag(picture.image.url(:thumb), class: 'img-circle') %></p>
           </li>
       <% end %>
     </ul>
+    <%= display_tags(@project) %>
   </div>
   <div class='col-sm-8'>
   <div class='page-header'>
@@ -31,18 +32,18 @@
     <div id="gallery-carousel" class="carousel slide">
       <!-- Indicators -->
       <ol class="carousel-indicators">
-        <% @project.gallery_images.each_with_index do |gallery_image, index| %>
+        <% @project.pictures.each_with_index do |picture, index| %>
           <li data-target="#gallery-carousel" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
         <% end %>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-        <% @project.gallery_images.each_with_index do |gallery_image, index| %>
+        <% @project.pictures.each_with_index do |picture, index| %>
           <div class="item text-center <%= 'active' if index == 0 %>">
-            <%= image_tag gallery_image.image.url(:large), class: 'image-responsive' %>
+            <%= image_tag picture.image.url(:large), class: 'image-responsive' %>
             <div class="carousel-caption">
-              <%= gallery_image.caption %>
+              <%= picture.caption %>
             </div>
           </div>
         <% end %>

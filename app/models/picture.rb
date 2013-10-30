@@ -1,5 +1,5 @@
-class GalleryImage < ActiveRecord::Base
-  belongs_to :projects
+class Picture < ActiveRecord::Base
+  belongs_to :pictureable, polymorphic: true
   attr_accessible :caption, :description, :image
   has_attached_file :image, 
                     styles: { 

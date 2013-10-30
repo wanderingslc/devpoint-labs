@@ -86,19 +86,19 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def new_gallery_image
+  def new_picture
     @project = Project.find(params[:project_id])
-    @gallery_image = @project.gallery_images.new
+    @picture = @project.pictures.new
   end
 
-  def create_gallery_image
+  def create_picture
     @project = Project.find(params[:project_id])
-    @gallery_image = @project.gallery_images.new(params[:gallery_image])
-    if @gallery_image.save
+    @picture = @project.pictures.new(params[:picture])
+    if @picture.save
       redirect_to project_path(@project), notice: "Image successfully uploaded"
     else
       flash.now.alert = 'Image could not be saved. See errors below'
-      render :new_gallery_image
+      render :new_picture
     end
   end  
 end
