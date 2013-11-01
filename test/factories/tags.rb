@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :tag do
-    name "MyString"
-    taggable nil
+    name      { Faker::DizzleIpsum.word }
   end
 end

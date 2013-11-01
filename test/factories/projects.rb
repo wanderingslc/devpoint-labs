@@ -8,6 +8,6 @@ FactoryGirl.define do
     completed_at    {Time.now - 10.weeks}
     published_at    {Time.now - 20.minutes}
     stats           { Faker::Lorem.sentence }
-    user_id         { FactoryGirl.create(:user).id}
+    # user_id         { FactoryGirl.create(:user).id}
   end
 end

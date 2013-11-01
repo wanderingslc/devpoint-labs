@@ -13,9 +13,17 @@
 <ul class='list-inline thumbnails'>
   <% @users.each do |user| %>
     <li class='thumbnail text-center'>
-      <p><%= image_tag(user.avatar.url(:small), class: 'img-circle') %></p>
+      <% unless user.pictures.empty? %>
+        <p><%= image_tag(user.pictures.first.image.url(:small), class: 'img-circle') %></p>
+        <% end %>
       <h3> <%= user.full_name %></h3>
       <%= display_tags(user) %>
+      <p>Projects</p>
+      <ul>
+        <% user.projects.each do |p| %>
+          <li><%= p.name %></li>
+        <% end %>
+      </ul>
     </li>
   <% end %>
 </ul>
