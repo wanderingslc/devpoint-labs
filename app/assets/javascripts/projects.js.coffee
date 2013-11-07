@@ -4,3 +4,11 @@
 
 $ -> 
   $('.carousel').carousel()
+  $('.has_tooltip').tooltip()
+  
+  $('.project-tile').hover ->
+    $(this).children('.project-title').slideToggle(300)
+
+  $('.project-thumbnails img').on 'click', ->
+    $(this).closest('.modal-body').find('.featured-image').attr('src', $(this).attr('data-url'))
+    

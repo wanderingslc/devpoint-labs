@@ -20,12 +20,13 @@
       <li><%= link_to t(:learn_more), learn_more_path %></li>
       <li><%= link_to t(:tuition), tuition_path %></li>
       <li><%= link_to t(:faq), faq_path %></li>
+      <li><%= link_to t(:projects), projects_path %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li> 
           <%= link_to edit_user_registration_path do %>
-            <%= image_tag current_user.avatar.url(:mini), class: 'img-circle' %> 
+            <%= image_tag current_user.picture.url(:mini), class: 'img-circle' %> 
             <%= current_user.full_name %>
           <% end %>
         </p> 

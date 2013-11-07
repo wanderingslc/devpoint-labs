@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :picture do
-    caption "MyString"
-    description "MyText"
-    # projects nil
+    caption { Faker::HipsterIpsum.word }
+    description { Faker::HipsterIpsum.phrase }
+    image { File.open(Dir["/Users/ben/Pictures/Stock\ Photos/wallpapers/*.jpg"].sample) }
   end
 end

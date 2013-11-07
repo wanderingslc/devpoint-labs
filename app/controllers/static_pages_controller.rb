@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-    @users = User.includes(:pictures, :tags, :projects)
+    @users = User.includes(:picture, :tags, :projects)
   end
 
   def web_development

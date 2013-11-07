@@ -1,3 +1,20 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.project-title{
+  background-color: rgba(0,0,0,0.85);
+  color: white;
+  text-shadow: 0px 0px 2px #1d1d1d;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  margin-top: 20%;
+  display: none;
+}
+.project-thumbnails img{
+  cursor: pointer;
+}
+.no-gutters{
+  padding: 0px;
+}

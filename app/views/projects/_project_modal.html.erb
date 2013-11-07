@@ -1,0 +1,33 @@
+<div class="modal fade" id="project-<%=project.id %>"  role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title"> &nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <div class='row'>
+          <div class='col-sm-6 text-center'>
+            <%= image_tag project.pictures.first.image.url(:large), class: 'featured-image img-responsive img-thumbnail' %>
+          </div>
+          <div class='col-sm-6'>
+            <h2><%= project.name.titleize %></h2>
+            <h3>By: <%= project.user.try(:full_name).titleize %></h3>
+            <p><%= simple_format project.description %></p>
+            <hr>
+            <p>Completed <%= time_tag(project.completed_at.to_date) %></p>
+          </div>          
+        </div>
+        <hr>
+        <div class='project-thumbnails'>
+          <% project.pictures.each do |pic| %>
+            <%= image_tag(pic.image.url(:thumb), class: 'img-responsive img-thumbnail', data: { url:  pic.image.url(:large) } )%>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer text-center">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

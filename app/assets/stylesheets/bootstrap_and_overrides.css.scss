@@ -9,3 +9,7 @@ $btn-primary-color: $navbar-default-link-color;
 $carousel-indicator-active-bg:  $primary-color;
 $carousel-indicator-border-color:  $carousel-indicator-active-bg;
 @import "bootstrap";
+
+.modal-dialog{
+  min-width: 80%;
+}
