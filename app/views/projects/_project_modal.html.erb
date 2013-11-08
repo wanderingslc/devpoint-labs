@@ -13,6 +13,7 @@
           <div class='col-sm-6'>
             <h2><%= project.name.titleize %></h2>
             <h3>By: <%= project.user.try(:full_name).titleize %></h3>
+            <%= display_tags(project) %>
             <p><%= simple_format project.description %></p>
             <hr>
             <p>Completed <%= time_tag(project.completed_at.to_date) %></p>

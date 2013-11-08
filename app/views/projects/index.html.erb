@@ -1,14 +1,16 @@
 <div class='page-header'>
   <h1> Our Projects</h1>
 </div>
+<div class='project-info'></div>
 <div class='row'>
   <% @projects.each do |project| %>
     <div class='project-tile col-xs-6 col-sm-4 col-md-3 no-gutters' >
-      <%= render 'projects/project_modal', project: project %>
       <div class='project-title'>
         <h4><%= project.name.try(:titleize) %></h4>
         <p><%= project.user.try(:full_name) %></p>
-        <p><a href="#project-<%=project.id %>" data-toggle="modal" >See More ></a></p>
+        <p>
+          <%= link_to "Show More >", project_path(project), remote: true %>
+        </p>
       </div>
       <%= image_tag project.pictures.first.image.url(:medium), class: 'img-responsive' %>
     </div>
