@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.15'
@@ -7,6 +8,7 @@ gem 'simple_form'
 gem 'devise'
 gem "figaro"
 gem "paperclip", "~> 3.0"
+gem 'aws-sdk', '~> 1.5.7'
 
 
 group :development do
