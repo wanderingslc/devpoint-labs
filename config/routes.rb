@@ -1,4 +1,11 @@
 DevpointLabs::Application.routes.draw do
+  
+  resources :admin, only: :index 
+  namespace :admin do
+    resources :users
+  end
+
+
   resources :posts
 
 
