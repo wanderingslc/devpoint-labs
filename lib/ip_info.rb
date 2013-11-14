@@ -10,6 +10,8 @@ class IpInfo
       response = http.request request
     end
     ipinfo = JSON.parse(data.body)
+    lat, long = ipinfo['loc'].split(',')
+    ipinfo.merge('latitude' => lat, 'longitude' => long)
   end
 
 end
