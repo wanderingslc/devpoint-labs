@@ -20,7 +20,7 @@
             <%= display_tags(project) %>
             <p><%= simple_format project.description %></p>
             <hr>
-            <p>Completed <%= time_tag(project.completed_at.to_date) %></p>
+            <p>Completed <%= human_date project.completed_at %></p>
           </div>          
         </div>
         <hr>
