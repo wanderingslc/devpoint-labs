@@ -16,4 +16,8 @@
     </div>
   <% end %>
 </div>
-
+<% if can? :create, Project %>
+  <p class='pull-right'>
+    <%= link_to "Create New Project", new_project_path, class: 'btn btn-lg btn-primary' %>
+  </p>
+<% end %>

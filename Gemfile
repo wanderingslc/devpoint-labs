@@ -12,6 +12,7 @@ gem 'aws-sdk', '~> 1.5.7'
 gem 'asset_sync'
 gem 'unf' 
 gem "rolify"
+gem "cancan"
 
 
 group :development do
