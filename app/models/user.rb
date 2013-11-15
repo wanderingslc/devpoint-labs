@@ -1,5 +1,6 @@
   # user: { first_name: 'test', ......, picture_attributes: { attributes} }
 class User < ActiveRecord::Base
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_one :picture, as: :pictureable, dependent: :destroy

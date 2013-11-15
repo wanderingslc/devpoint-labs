@@ -10,6 +10,6 @@ class AdminController < ApplicationController
   private
 
   def authorize_admin
-    redirect_to root_path, alert: "Sorry this area is restricted to admins." unless current_user.role == 'admin' 
+    redirect_to root_path, alert: "Sorry this area is restricted to admins." unless current_user.has_role? :admin
   end
 end
