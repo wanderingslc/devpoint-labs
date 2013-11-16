@@ -1,4 +1,5 @@
 module DateHelper
+  
   def human_date(date)
     time_tag(date.to_date)
   end

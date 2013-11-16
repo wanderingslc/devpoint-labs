@@ -2,11 +2,11 @@ class Admin::UsersController < AdminController
   # GET /admin/users
   # GET /admin/users.json
   def index
-    @admin_users = UserDecorator.decorate_collection(User.includes(:picture, :tags, :projects))
+    @users = UserDecorator.decorate_collection(User.includes(:picture, :tags, :projects))
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @admin_users }
+      format.json { render json: @users }
     end
   end
 
@@ -17,38 +17,39 @@ class Admin::UsersController < AdminController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @admin_user }
+      format.json { render json: @user }
     end
   end
 
   # GET /admin/users/new
   # GET /admin/users/new.json
   def new
-    @admin_user = User.new
+    @user = User.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @admin_user }
+      format.json { render json: @user }
     end
   end
 
   # GET /admin/users/1/edit
   def edit
-    @admin_user = UserDecorator.find(params[:id])
+    @user = UserDecorator.find(params[:id])
   end
 
   # POST /admin/users
   # POST /admin/users.json
   def create
-    @admin_user = User.new(params[:admin_user])
+    @user = User.new(params[:user])
 
     respond_to do |format|
-      if @admin_user.save
-        format.html { redirect_to @admin_user, notice: 'User was successfully created.' }
-        format.json { render json: @admin_user, status: :created, location: @admin_user }
+      if @user.save
+        format.html { redirect_to admin_user_path(@user), notice: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
       else
+        flash.now.alert = "Could not create User, please check for errors."
         format.html { render action: "new" }
-        format.json { render json: @admin_user.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,15 +57,16 @@ class Admin::UsersController < AdminController
   # PUT /admin/users/1
   # PUT /admin/users/1.json
   def update
-    @admin_user = User.find(params[:id])
+    @user = User.find(params[:id])
 
     respond_to do |format|
-      if @admin_user.update_attributes(params[:admin_user])
-        format.html { redirect_to @admin_user, notice: 'User was successfully updated.' }
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to admin_user_path(@user), notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
+        flash.now.alert = "Could not update User, please check for errors."
         format.html { render action: "edit" }
-        format.json { render json: @admin_user.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -72,11 +74,11 @@ class Admin::UsersController < AdminController
   # DELETE /admin/users/1
   # DELETE /admin/users/1.json
   def destroy
-    @admin_user = User.find(params[:id])
-    @admin_user.destroy
+    @user = User.find(params[:id])
+    @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_users_url }
+      format.html { redirect_to admin_users_url, notice: "User successfully deleted." }
       format.json { head :no_content }
     end
   end

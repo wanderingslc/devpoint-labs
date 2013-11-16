@@ -3,7 +3,13 @@ require "test_helper"
 class ProjectTest < ActiveSupport::TestCase
 
   before do
-    @project = build(:project)
+    @user = create(:user)
+    @project = @user.projects.create(attributes_for(:project))
+  end
+
+  it 'cannot be created without a user' do
+    proj = build(:project)
+    assert proj.invalid?
   end
 
   it 'is a valid project' do
@@ -21,7 +27,7 @@ class ProjectTest < ActiveSupport::TestCase
   end  
 
   it 'has a user id' do
-    @project.user_id = nil
+    @project.user = nil
     assert @project.invalid?
   end    
 

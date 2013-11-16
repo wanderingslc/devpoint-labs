@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :pictures, :tags
   attr_accessible :completed_at, :description, :name, :published_at, :stats, :url, :user_id, :pictures_attributes, :tags_attributes
 
-  validates :name, :description, :user, presence: true
+  validates :name, :description, :user_id, presence: true
+  validates :user, associated: true
 
 end

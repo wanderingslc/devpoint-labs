@@ -2,11 +2,10 @@
 
 FactoryGirl.define do
   factory :post do
-    title "MyString"
-    body "MyText"
-    published_at "2013-10-29 17:25:49"
-    user nil
-    seo_title "MyString"
-    seo_description "MyString"
+    title                 { Faker::Lorem.word }
+    body                  { Faker::Lorem.paragraph }
+    published_at          { Time.now }
+    seo_title             { Faker::Lorem.sentence }
+    seo_description       { Faker::Lorem.sentence }
   end
 end

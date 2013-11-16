@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale]
   end
 
+  def current_user
+    UserDecorator.decorate(super) unless super.nil?
+  end
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message

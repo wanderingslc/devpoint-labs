@@ -14,7 +14,7 @@ gem 'unf'
 gem "rolify"
 gem "cancan"
 gem 'draper', '~> 1.3'
-
+gem 'coveralls', require: false
 
 group :development do
   gem 'powder'

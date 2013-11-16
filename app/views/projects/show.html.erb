@@ -1,6 +1,6 @@
 <div class='row'>
   <div class='col-sm-4'>
-    <%= image_tag @project.pictures.first.image.url(:medium) %>
+    <%= image_tag @project.pictures.first.image.url(:medium) if @project.pictures.present? %>
     <ul class='list-inline thumbnails'>
       <% @project.pictures.each do |picture| %>
         <li class='thumbnail text-center'>

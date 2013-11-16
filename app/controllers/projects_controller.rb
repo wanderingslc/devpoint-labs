@@ -1,10 +1,10 @@
 class ProjectsController < ApplicationController
   load_and_authorize_resource
-  
+  before_filter :find_users, only: [:new, :edit, :create, :update]  
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.includes(:pictures, :user).limit(12)
+    @projects = ProjectDecorator.decorate_collection(Project.includes(:pictures, :user))
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @project = Project.find(params[:id], include: [:pictures, :user, :tags])
+    @project = Project.find(params[:id], include: [:pictures, :user, :tags]).decorate
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,11 +27,10 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.json
   def new
-    @project = Project.new
+    @project = current_user.object.projects.new
     @project.pictures.build 
     @project.tags.new
 
-    @users = User.order('first_name desc')
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @project }
@@ -40,16 +39,14 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    @project = Project.find(params[:id])
-    @users = User.order('first_name desc')
+    @project = ProjectDecorator.find(params[:id])
 
   end
 
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(params[:project])
-    @users = User.order('first_name desc')
+    @project = current_user.object.projects.new(params[:project])
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -72,7 +69,6 @@ class ProjectsController < ApplicationController
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
-        @users = User.order('first_name desc')
         flash.now.alert = "Project could not be updated. Please correct the errors below."
         format.html { render action: "edit" }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -93,13 +89,13 @@ class ProjectsController < ApplicationController
   end
 
   def new_picture
-    @project = Project.find(params[:project_id])
-    @picture = @project.pictures.new
+    @project = ProjectDecorator.find(params[:project_id])
+    @picture = @project.object.pictures.new
   end
 
   def create_picture
-    @project = Project.find(params[:project_id])
-    @picture = @project.pictures.new(params[:picture])
+    @project = ProjectDecorator.find(params[:project_id])
+    @picture = @project.object.pictures.new(params[:picture])
     if @picture.save
       redirect_to project_path(@project), notice: "Image successfully uploaded"
     else
@@ -107,4 +103,9 @@ class ProjectsController < ApplicationController
       render :new_picture
     end
   end  
+
+  private
+  def find_users
+    @users = UserDecorator.decorate_collection(User.order('first_name desc'))
+  end
 end

@@ -1,6 +1,9 @@
 class UserDecorator < Draper::Decorator
   delegate_all
   decorates_finders
+  decorates_association :picture
+  decorates_association :projects
+  decorates_association :tags
 
   def full_name
     first_name + ' ' + last_name

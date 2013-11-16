@@ -10,8 +10,8 @@ DevpointLabs::Application.routes.draw do
 
 
   resources :projects do
-    get 'pictures/new', to: 'projects#new_gallery_image', as: :new_gallery_image
-    post 'pictures/new', to: 'projects#create_gallery_image', as: :create_gallery_image
+    get 'pictures/new', to: 'projects#new_picture', as: :new_picture
+    post 'pictures/new', to: 'projects#create_picture', as: :create_picture
   end
   devise_for :users, controllers: {registrations: 'registrations'}
 
