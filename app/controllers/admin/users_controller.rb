@@ -2,7 +2,7 @@ class Admin::UsersController < AdminController
   # GET /admin/users
   # GET /admin/users.json
   def index
-    @admin_users = User.all
+    @admin_users = UserDecorator.decorate_collection(User.includes(:picture, :tags, :projects))
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class Admin::UsersController < AdminController
   # GET /admin/users/1
   # GET /admin/users/1.json
   def show
-    @admin_user = User.find(params[:id])
+    @user = UserDecorator.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class Admin::UsersController < AdminController
 
   # GET /admin/users/1/edit
   def edit
-    @admin_user = User.find(params[:id])
+    @admin_user = UserDecorator.find(params[:id])
   end
 
   # POST /admin/users

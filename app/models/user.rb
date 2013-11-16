@@ -15,14 +15,6 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, presence: true
   # after_create :send_welcome_email 
 
-  def full_name
-    first_name + ' ' + last_name
-  end
-
-  def street_name
-    (first_name[0] + '-' + last_name[0..4]).to_s
-  end
-
   private
   
   def send_welcome_email 

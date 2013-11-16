@@ -1,8 +1,7 @@
 class StaticPagesController < ApplicationController
-  skip_authorization_check
   
   def home
-    @users = User.includes(:picture, :tags, :projects)
+    @users = UserDecorator.decorate_collection(User.includes(:picture, :tags, :projects))
   end
 
   def web_development
