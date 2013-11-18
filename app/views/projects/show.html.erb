@@ -1,0 +1,67 @@
+<div class='row'>
+  <div class='col-sm-4'>
+    <%= image_tag @project.pictures.first.image.url(:medium) %>
+    <ul class='list-inline thumbnails'>
+      <% @project.pictures.each do |picture| %>
+        <li class='thumbnail text-center'>
+          <p><%= image_tag(picture.image.url(:thumb), class: 'img-circle') %></p>
+          </li>
+      <% end %>
+    </ul>
+    <%= display_tags(@project) %>
+  </div>
+  <div class='col-sm-8'>
+  <div class='page-header'>
+    <h1>
+      <%= @project.name %>
+      <small><%= link_to @project.url, @project.url %></small>
+    </h1>
+    <h2><%= @project.user.full_name %></h2>
+    <% if @project.completed_at.present? %>
+      <p><b>Completed</b>  <%= @project.completed_at %></p>
+    <% end %>
+    <% if @project.published_at.present? %>
+      <p><b>Published at</b>  <%= @project.published_at %></p>
+    <% end %>
+
+    <p><%= simple_format @project.description %></p>
+    <% if @project.stats.present? %>
+    <h4>Stats:</h4>
+    <p><%= simple_format @project.stats %></p>
+    <% end %>
+    <div id="gallery-carousel" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <% @project.pictures.each_with_index do |picture, index| %>
+          <li data-target="#gallery-carousel" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
+        <% end %>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <% @project.pictures.each_with_index do |picture, index| %>
+          <div class="item text-center <%= 'active' if index == 0 %>">
+            <%= image_tag picture.image.url(:large), class: 'image-responsive' %>
+            <div class="carousel-caption">
+              <%= picture.caption %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#gallery-carousel" data-slide="prev">
+        <span class="icon-prev"></span>
+      </a>
+      <a class="right carousel-control" href="#gallery-carousel" data-slide="next">
+        <span class="icon-next"></span>
+      </a>
+    </div>    
+  </div>
+</div>
+
+<hr />
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

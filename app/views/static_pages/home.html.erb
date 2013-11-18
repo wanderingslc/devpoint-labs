@@ -4,3 +4,23 @@
     <p><a class="btn btn-primary btn-lg">Learn more</a></p>
   </div>
 </div>
+<p>We have <%= pluralize(@users.count, 'user') %> so far</p>
+
+<h3> Our Students </h3>
+<ul class='list-inline thumbnails'>
+  <% @users.each do |user| %>
+    <li class='thumbnail text-center'>
+      <% if user.picture %>
+        <p><%= image_tag(user.picture.image.url(:small), class: 'img-circle') %></p>
+      <% end %>
+      <h3> <%= user.full_name %></h3>
+      <%= display_tags(user) %>
+      <p>Projects</p>
+      <ul>
+        <% user.projects.each do |p| %>
+          <li><%= p.name %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,7 @@
+<%= simple_form_for @picture, url: project_create_picture_path(@project) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :image, required: true %>
+  <%= f.input :caption %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>

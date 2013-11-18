@@ -1,0 +1,28 @@
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :url %>
+    <%= f.input :completed_at, include_blank: true %>
+    <%= f.input :published_at, include_blank: true %>
+    <%= f.input :stats %>
+    <%= f.association :user, collection: @users.collect {|user| [ user.full_name, user.id ] } %>
+    <%= f.simple_fields_for :pictures do |p| %>
+      <h3> Upload a cover image </h3>
+      <%= p.input :image %>
+      <%= p.input :caption %>
+      <%= p.input :description, input_html: {rows: 3}%>
+    <% end %>
+
+    <%= f.simple_fields_for :tags do |tag| %>
+      <h3> Add a tag</h3>
+      <%= tag.input :name %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

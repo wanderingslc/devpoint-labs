@@ -6,7 +6,7 @@ class Message
 
   attr_accessor :body, :email, :name, :subject
 
-  validates :body, :email, :name, :subject, presence: true
+  validates :body, :subject, :name, :email, presence: true
   validates :email, format: { with: Devise::email_regexp }
 
   def initialize(attributes = {})

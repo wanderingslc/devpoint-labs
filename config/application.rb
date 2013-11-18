@@ -11,6 +11,11 @@ end
 
 module DevpointLabs
   class Application < Rails::Application
+
+    config.generators do |g|
+      g.test_framework :mini_test, :spec => false, :fixture => false
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -62,5 +67,16 @@ module DevpointLabs
     # Disables database from loading during asset compilation on HEROKU
     config.assets.initialize_on_precompile = false
 
+    config.paperclip_defaults = {
+        :default_url => "#{Rails.root}/assets/:attachment/default/:style.png",
+        :storage => :s3, 
+        :s3_credentials => {
+             :access_key_id =>  ENV['S3_KEY'], 
+             :secret_access_key =>  ENV['S3_SECRET'] 
+             }, 
+             :s3_protocol => 'https', 
+             :bucket =>  ENV['S3_BUCKET'], 
+             :path => "/:attachment/:id/:style.:extension"
+    }
   end
 end
