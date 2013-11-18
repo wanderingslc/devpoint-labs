@@ -15,6 +15,7 @@ gem "rolify"
 gem "cancan"
 gem 'draper', '~> 1.3'
 gem 'coveralls', require: false
+gem "cocoon"
 
 group :development do
   gem 'powder'
