@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    user = User.new() unless user
+    user ||= User.new() 
   end
 
 end
