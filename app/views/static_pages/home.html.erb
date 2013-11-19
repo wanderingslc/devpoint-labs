@@ -11,7 +11,7 @@
   <% @users.each do |user| %>
     <li class='thumbnail text-center'>
       <% if user.picture %>
-        <p><%= image_tag(user.picture.image.url(:small), class: 'img-circle') %></p>
+        <p><%= image_tag(user.picture.image.url(:medium), class: 'img-circle') %></p>
       <% end %>
       <h3> <%= user.full_name %></h3>
       <p>Member since: <%= user.created_at %></p>

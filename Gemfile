@@ -5,7 +5,11 @@ gem 'rails', '3.2.15'
 gem 'rails-i18n', '~> 3.0.0' # For 3.x
 gem 'pg'
 gem 'simple_form'
+
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 gem "figaro"
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk', '~> 1.5.7'

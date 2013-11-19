@@ -13,7 +13,7 @@ DevpointLabs::Application.routes.draw do
     get 'pictures/new', to: 'projects#new_picture', as: :new_picture
     post 'pictures/new', to: 'projects#create_picture', as: :create_picture
   end
-  devise_for :users, controllers: {registrations: 'registrations'}
+  devise_for :users, controllers: {registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks'}
 
 
   root :to => 'static_pages#home'

@@ -4,8 +4,7 @@
   <%= f.error_notification %>
   <div class='row'>
     <div class='col-sm-6 text-center'>
-        <%= image_tag resource.avatar.url(:medium) %>
-        <%= f.input :avatar, :required => true %>
+        <%= image_tag resource.picture.image.url(:large)  if resource.picture %>
     </div>
     <div class='col-md-6'>
       <div class="form-inputs">
