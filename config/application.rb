@@ -21,7 +21,7 @@ module DevpointLabs
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/lib )
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -71,12 +71,12 @@ module DevpointLabs
         :default_url => "#{Rails.root}/assets/:attachment/default/:style.png",
         :storage => :s3, 
         :s3_credentials => {
-             :access_key_id =>  ENV['S3_KEY'], 
-             :secret_access_key =>  ENV['S3_SECRET'] 
-             }, 
-             :s3_protocol => 'https', 
-             :bucket =>  ENV['S3_BUCKET'], 
-             :path => "/:attachment/:id/:style.:extension"
+          :access_key_id =>  ENV['S3_KEY'], 
+          :secret_access_key =>  ENV['S3_SECRET'] 
+        }, 
+       :s3_protocol => 'https', 
+       :bucket =>  ENV['S3_BUCKET'], 
+       :path => "/:attachment/:id/:style.:extension"
     }
   end
 end

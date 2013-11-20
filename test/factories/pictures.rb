@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :picture do
     caption { Faker::HipsterIpsum.word }
     description { Faker::HipsterIpsum.phrase }
-    image { File.open(Dir["/Users/ben/Pictures/Stock\ Photos/wallpapers/*.jpg"].sample) }
+    image { Rack::Test::UploadedFile.new(Rails.root.join("#{Rails.root}/app/assets/images/avatars/default/original.png"), 'image/png') }
   end
 end

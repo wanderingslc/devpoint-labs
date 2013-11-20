@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+  - 2.0.0
+env:
+  - DEVISE_SECRET_KEY=travisd818f8e761c716ff5f6cc29d9472567e274a2e2802c7189f2citoken SECRET_TOKEN=travisd818f8e761c716ff5f6cc29d9472567e274a2e2802c7189f2citoken
+bundler_args: --without development production assets
+
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database devpoint_labs_test' -U postgres
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
+addons:
+  code_climate:

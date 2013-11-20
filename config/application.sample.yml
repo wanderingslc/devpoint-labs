@@ -1,0 +1,15 @@
+# This is a sample application.yml file. It should be updated with your own values
+S3_KEY:                   amazon-s3-key
+S3_SECRET:                amazon-s3-secret
+development:
+  DEVISE_SECRET_KEY:      fa665a7ac0f29c2abe7a065770a735c3e577859222c09b6239100598b2ccd18bc210663d0e3364db418e211efdbfdfce681c72c23f4ba1b4563d1c7ca90ee490 # this is a sample key generated with rake secret
+  SECRET_TOKEN:           95b1b5a40883896c4fadd7693f615468ce360fab58c684788c1b9a1b130d2f9d0ee1844135407996e11ea17c9ab130017073b945073b3b0dd7e5378211595083 # this is a sample key generated with rake secret
+  S3_BUCKET:              s3-development-bucket
+test:
+  DEVISE_SECRET_KEY:      af206cabbda7243071475862bbaf24bab3b0d90b80d419e9c15f7df5b9ca0ce3829f960e95a116b5ebca908c7a9ff76be3688483a3247a78cc842fa796b428f9 # this is a sample key generated with rake secret
+  SECRET_TOKEN:           travisd818f8e761c716ff5f6cc29d9472567e274a2e2802c7189f2citoken # this is the same test key I have set in .travis.yml
+production:
+  DEVISE_SECRET_KEY:      a673bb28cf2d38b48b7bb2b2820515b8963b5af40b3ceb5c1a0b86f12a5e2cbb8fffbc3e8eadb01c7fca842e5258f68b13b6d90324732a288db790c219256fb7 # this is a sample key generated with rake secret
+  SECRET_TOKEN:           a9216cee946e76498f2491b15429638c29a5fd368b80f6af960ac1eb78b7c28754f24d272d93a81208825be02cabdbf7b37da33be1ff405c58a2e49dd5ddcb1c # this is a sample key generated with rake secret
+  S3_BUCKET:              s3-production-bucket
+  CLOUDFRONT_URL:         cloudfront-production-url # (no http://)

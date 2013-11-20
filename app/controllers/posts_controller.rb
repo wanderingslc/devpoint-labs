@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  # load_and_authorize_resource
   # GET /posts
   # GET /posts.json
   def index
@@ -47,6 +48,7 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
+        flash.now.alert = "Post could not be created. Please check for errors."
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -63,6 +65,7 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
+        flash.now.alert = "Post could not be updated. Please check for errors."
         format.html { render action: "edit" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -76,7 +79,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to posts_url, notice: "Post destroyed." }
       format.json { head :no_content }
     end
   end

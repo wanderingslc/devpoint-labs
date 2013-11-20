@@ -2,12 +2,17 @@ require "test_helper"
 
 class TagTest < ActiveSupport::TestCase
 
-  def setup
-    @tag = Tag.new
+  before do
+    @tag = build(:tag)
   end
 
-  def test_valid
+  it "is valid with our defaults" do
     assert @tag.valid?
+  end
+
+  it "always has a name" do
+    @tag.name = nil
+    assert @tag.invalid?
   end
 
 end

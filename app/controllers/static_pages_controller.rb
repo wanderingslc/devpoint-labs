@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
-
+  
   def home
-    @users = User.includes(:picture, :tags, :projects)
+    @users = UserDecorator.decorate_collection(User.includes(:picture, :tags, :projects))
   end
 
   def web_development
@@ -11,9 +11,11 @@ class StaticPagesController < ApplicationController
   end
 
   def ios_development
+
   end
 
   def utah
+    @ip_info = IpInfo.new().get_ip_info
   end
 
   def learn_more

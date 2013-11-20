@@ -3,8 +3,18 @@ require "test_helper"
 class ProjectsControllerTest < ActionController::TestCase
 
   before do
-    @project = create(:project)
+    AWS.config(access_key_id: "TESTKEY", secret_access_key: "TESTSECRET",  stub_requests: true)
+    source = create(:user)
+    @user = UserDecorator.find(source)
+    @user.add_role :admin
+    sign_in @user
+    @project = @user.object.projects.create(attributes_for(:project))
   end
+
+  after do
+    AWS.config(access_key_id: nil, secret_access_key: nil, stub_requests: nil)
+  end
+
 
   test "it displays all the projects on index page" do
     get :index
@@ -15,7 +25,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "it renders a new project form" do
-    @project = build(:project)
+    project = @user.object.projects.new
     get :new
     assert_not_nil assigns(:project)
     assert_response :success
@@ -78,10 +88,29 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_not_nil flash.notice
   end
 
-  test 'it displays a new gallery image page' do
-    get :new_gallery_image
+  test 'it displays a new picture page' do
+    get :new_picture, project_id: @project.id
     assert_response :success
-    assert_template :new_gallery_image
-    
+    assert_template :new_picture
   end
+
+  test "it creates a new picture for the project and redirects to the project show page upon success" do
+
+    assert_difference('Picture.count', 1) do
+      post :create_picture, project_id: @project.id, picture: attributes_for(:picture)
+    end
+
+    assert_response :redirect
+    assert_not_nil flash.notice
+    assert_redirected_to project_path(assigns(:project))
+  end
+
+  test "it doesn't create a new picture for the project and renders the new_picture action again upon failure" do
+    assert_no_difference('Picture.count') do
+      post :create_picture, project_id: @project.id, picture: attributes_for(:picture, image: nil)
+    end
+    assert_response :success
+    assert_template :new
+    assert_not_nil flash.alert
+  end  
 end

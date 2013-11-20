@@ -1,6 +1,6 @@
 <div class='row'>
   <div class='col-sm-4'>
-    <%= image_tag @project.pictures.first.image.url(:medium) %>
+    <%= image_tag @project.pictures.first.image.url(:medium) if @project.pictures.present? %>
     <ul class='list-inline thumbnails'>
       <% @project.pictures.each do |picture| %>
         <li class='thumbnail text-center'>
@@ -18,10 +18,10 @@
     </h1>
     <h2><%= @project.user.full_name %></h2>
     <% if @project.completed_at.present? %>
-      <p><b>Completed</b>  <%= @project.completed_at %></p>
+      <p><b>Completed</b>  <%= human_date @project.completed_at %></p>
     <% end %>
     <% if @project.published_at.present? %>
-      <p><b>Published at</b>  <%= @project.published_at %></p>
+      <p><b>Published at</b>  <%= human_date @project.published_at %></p>
     <% end %>
 
     <p><%= simple_format @project.description %></p>

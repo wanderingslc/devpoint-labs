@@ -1,14 +1,15 @@
 GIT
   remote: git://github.com/blowmage/minitest-rails.git
-  revision: cc52a6d28073d81466d32d313c15ec3dd6de0ccb
+  revision: f0783fb76cec69941de65e71d14b14a6a59e8be6
   specs:
-    minitest-rails (0.9.2.20130623200248)
+    minitest-rails (0.9.2.20131029140815)
       minitest (~> 4.7)
+      minitest-test (~> 1.0)
       railties (>= 3.0)
 
 GIT
   remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
-  revision: 0e88056ac5d58fb0bbd23d3fe929eac01712d964
+  revision: 9c6c07f74ff515cf38380b014cfede14a4f0eae4
   branch: 3
   specs:
     bootstrap-sass (3.0.0.0)
@@ -45,7 +46,7 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     addressable (2.3.5)
-    arel (3.0.2)
+    arel (3.0.3)
     asset_sync (1.0.0)
       activemodel
       fog (>= 1.8.0)
@@ -63,13 +64,15 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
     callsite (0.0.11)
+    cancan (1.6.10)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
       climate_control (>= 0.0.3, < 1.0)
-    coderay (1.0.9)
+    cocoon (1.2.3)
+    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -77,13 +80,25 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    coveralls (0.7.0)
+      multi_json (~> 1.3)
+      rest-client
+      simplecov (>= 0.7)
+      term-ansicolor
+      thor
     debug_inspector (0.0.2)
-    devise (3.1.1)
+    devise (3.2.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    docile (1.1.0)
+    draper (1.3.0)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0.3)
     em-websocket (0.5.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
@@ -91,13 +106,13 @@ GEM
     eventmachine (1.0.3)
     excon (0.28.0)
     execjs (2.0.2)
-    factory_girl (4.2.0)
+    factory_girl (4.3.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.2.1)
-      factory_girl (~> 4.2.0)
+    factory_girl_rails (4.3.0)
+      factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
-    ffaker (1.20.0)
-    ffi (1.9.0)
+    ffaker (1.21.0)
+    ffi (1.9.3)
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
@@ -111,8 +126,10 @@ GEM
       net-ssh (>= 2.1.3)
       nokogiri (~> 1.5)
       ruby-hmac
+    font-awesome-sass (4.0.2)
+      sass-rails (>= 3.1.1)
     formatador (0.2.4)
-    guard (2.1.1)
+    guard (2.2.4)
       formatador (>= 0.2.4)
       listen (~> 2.1)
       lumberjack (~> 1.0)
@@ -122,11 +139,12 @@ GEM
       em-websocket (~> 0.5)
       guard (~> 2.0)
       multi_json (~> 1.8)
-    guard-minitest (2.0.0)
+    guard-minitest (2.1.1)
       guard (~> 2.0)
       minitest (>= 3.0)
     guard-pow (2.0.0)
       guard (~> 2.0)
+    hashie (2.0.5)
     hike (1.2.3)
     http_parser.rb (0.5.3)
     httparty (0.12.0)
@@ -138,14 +156,15 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
-    launchy (2.3.0)
+    launchy (2.4.0)
       addressable (~> 2.3)
     letter_opener (1.1.2)
       launchy (~> 2.2)
-    listen (2.1.1)
+    listen (2.2.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    lockfile (2.1.0)
     lumberjack (1.0.4)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -158,6 +177,8 @@ GEM
     mime-types (1.25)
     mini_portile (0.5.2)
     minitest (4.7.5)
+    minitest-test (1.0.0)
+      minitest (~> 4.0)
     multi_json (1.8.2)
     multi_xml (0.5.5)
     net-scp (1.1.2)
@@ -165,7 +186,17 @@ GEM
     net-ssh (2.7.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    orm_adapter (0.4.0)
+    oauth (0.4.7)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-twitter (1.0.1)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
+    orm_adapter (0.5.0)
     paperclip (3.5.2)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -175,8 +206,8 @@ GEM
     polyglot (0.3.3)
     powder (0.2.0)
       thor (>= 0.11.5)
-    pry (0.9.12.2)
-      coderay (~> 1.0.5)
+    pry (0.9.12.3)
+      coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
     pry-rails (0.3.2)
@@ -216,6 +247,10 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    request_store (1.0.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    rolify (3.2.0)
     ruby-hmac (0.4.0)
     ruby_gntp (0.3.4)
     sass (3.2.12)
@@ -226,31 +261,40 @@ GEM
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
-    slop (3.4.6)
+    simplecov (0.8.1)
+      docile (~> 1.1.0)
+      lockfile (>= 2.1.0)
+      multi_json
+      simplecov-html (~> 0.8.0)
+    simplecov-html (0.8.0)
+    slop (3.4.7)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
     thor (0.18.1)
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
     timers (1.1.0)
+    tins (0.13.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.38)
-    uglifier (2.2.1)
+    uglifier (2.3.1)
       execjs (>= 0.3.0)
-      multi_json (~> 1.0, >= 1.0.2)
+      json (>= 1.8.0)
     unf (0.1.3)
       unf_ext
     unf_ext (0.0.6)
     uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
-    xray-rails (0.1.6)
+    xray-rails (0.1.9)
       coffee-rails
       rails (>= 3.1.0)
 
@@ -263,11 +307,16 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass!
+  cancan
+  cocoon
   coffee-rails (~> 3.2.1)
+  coveralls
   devise
+  draper (~> 1.3)
   factory_girl_rails (>= 4.2.0)
   ffaker
   figaro
+  font-awesome-sass
   guard
   guard-livereload
   guard-minitest
@@ -276,6 +325,8 @@ DEPENDENCIES
   letter_opener
   meta_request
   minitest-rails!
+  omniauth
+  omniauth-twitter
   paperclip (~> 3.0)
   pg
   powder
@@ -284,6 +335,7 @@ DEPENDENCIES
   rails (= 3.2.15)
   rails-i18n (~> 3.0.0)
   rb-fsevent
+  rolify
   ruby_gntp
   sass-rails (~> 3.2.3)
   simple_form

@@ -5,12 +5,21 @@ gem 'rails', '3.2.15'
 gem 'rails-i18n', '~> 3.0.0' # For 3.x
 gem 'pg'
 gem 'simple_form'
+
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 gem "figaro"
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk', '~> 1.5.7'
 gem 'asset_sync'
 gem 'unf' 
+gem "rolify"
+gem "cancan"
+gem 'draper', '~> 1.3'
+gem 'coveralls', require: false
+gem "cocoon"
 
 group :development do
   gem 'powder'
@@ -52,6 +61,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem "bootstrap-sass", github: "thomas-mcdonald/bootstrap-sass", branch: '3'
   gem 'uglifier', '>= 1.0.3'
+  gem 'font-awesome-sass'
 end
 
 gem 'jquery-rails'
